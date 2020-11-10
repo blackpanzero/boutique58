@@ -1,0 +1,360 @@
+{% extends "store/layout.html" %}
+
+
+
+{% load static %}
+
+{% block title %} Boutique 55 | {{category}} {% endblock %}
+
+{% block body %}
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  <!-- Css Styles -->
+  <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/magnific-popup.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+
+
+      <!-- Js Plugins -->
+      <script src="{% static 'js/jquery-3.3.1.min.js'%}"></script>
+      <script src="{% static 'js/bootstrap.min.js'%}"></script>
+     
+
+<style>
+/* Style the input field */
+#myInput {
+  padding: 20px;
+  margin-top: -6px;
+  border: 0;
+  border-radius: 0;
+  background: #f1f1f1;
+}
+</style>
+
+
+
+
+
+    <!-- Breadcrumb Section Begin -->
+    <section class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__text">
+                        <h4>Shop</h4>
+                        <div class="breadcrumb__links">
+                            <a href="{%url 'index'%}">Home</a>
+                            <a href="{%url 'shop'%}">Shop</a>
+                            <span>{{category}}</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Breadcrumb Section End -->
+
+
+    <br>
+    <br>
+    
+
+
+    <!-- Shop Section Begin -->
+    <section class="shop spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-3">
+                    <div class="shop__sidebar">
+                        <div class="shop__sidebar__search">
+                            <form autocomplete="off">
+                                <div class="dropdown">
+                                  <input class="form-control dropdown-toggle " id="myInput"  data-toggle="dropdown" type="text" placeholder="Search by category..">
+                                  <ul class="dropdown-menu">
+                                      {%for category in categories%}
+                                    <li><a href="{%url 'category' category%}">{{category}}</a></li>   
+                                     {%endfor%}                                    
+                                  </ul>
+                                </div>
+                                </form>
+                        </div>
+                        <div class="shop__sidebar__accordion">
+                            <div class="accordion" id="accordionExample">
+                         
+
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseOne">Clothing</a>
+                                    </div>
+                                    <div id="collapseOne" class="collapse show " data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__categories">
+                                               
+                                                <ul class="nice-scroll">
+                                                    {%for category in clothing%}
+                                           
+                                                    <li><a  class="cat {{category}}" href="{%url 'category' category%}">{{category}} </a></li>
+                                                  
+                                                    {%endfor%}
+                                                </ul>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+             
+
+                         
+
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseTwo">Accessories</a>
+                                    </div>
+                                    <div id="collapseTwo" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__categories">
+                                               
+                                                <ul class="nice-scroll">
+                                                    {%for category in accessories%}
+                        
+                                                    <li><a  class="cat {{category}}" href="{%url 'category' category%}">{{category}} </a></li>
+                                                   
+                                                    {%endfor%}
+                                                </ul>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseThree">Shoes</a>
+                                    </div>
+                                    <div id="collapseThree" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__categories">
+                                               
+                                                <ul class="nice-scroll">
+                                                    {%for category in shoes%}
+                                             
+                                                    <li><a  class="cat {{category}}" href="{%url 'category' category%}">{{category}} </a></li>
+                                                  
+                                                    {%endfor%}
+                                                </ul>
+                                                
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="card">
+                                    <div class="card-heading">
+                                        <a data-toggle="collapse" data-target="#collapseSix">Tags</a>
+                                    </div>
+                                    <div id="collapseSix" class="collapse show" data-parent="#accordionExample">
+                                        <div class="card-body">
+                                            <div class="shop__sidebar__tags">
+                                                <a href="#">Product</a>
+                                                <a href="#">Bags</a>
+                                                <a href="#">Shoes</a>
+                                                <a href="#">Fashio</a>
+                                                <a href="#">Clothing</a>
+                                                <a href="#">Hats</a>
+                                                <a href="#">Accessories</a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-9">
+                    <div class="shop__product__option">
+                        <div class="row">
+                            <div class="col-lg-3 col-md-3 col-sm-3">
+                                <div class="shop__product__option__left">
+                                    <p>Showing {% if page_obj.has_next %}1–12 of {%endif%} {{count}} results</p>
+                                </div>
+                            </div>
+
+                                        
+                            <div class="col-lg-1 col-md-1 col-sm-1">
+
+                          
+                                <div class="shop__product__option__right">
+                                    <h4  style="text-align: center;"><a class="gender all" style="color: black; font-size: larger;" href="{% url 'category' category%}">All</a></h4>
+                                
+                                </div>
+                            
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+
+                          
+                                <div class="shop__product__option__right">
+                                    <h4 style="text-align: center;"><a class="gender men" href="{% url 'gender_category' 'men' category%}">MEN</a></h4>
+                                
+                                </div>
+                            
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+
+                          
+                                <div class="shop__product__option__right">
+                                    <h4 style="text-align: center;"><a class="gender women" href="{% url 'gender_category' 'women' category%}">WOMEN</a> </h4>
+                                
+                                </div>
+                            
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+
+                          
+                                <div class="shop__product__option__right">
+                                    <h4 style="text-align: center;" ><a class="gender kids" href="{% url 'gender_category' 'kids' category%}">KIDS</a></h4>
+                                
+                                </div>
+                            
+                            </div>
+                            <div class="col-lg-2 col-md-2 col-sm-2">
+
+                                <form  action="" method="POST">
+                                    {% csrf_token %}
+                                <div class="shop__product__option__right">
+                                    <p>Sort by Price:</p>
+                                    <select onchange="this.form.submit()" name="price">
+                                        {%if order == 'ascending'%}
+                                        <option value="ascending">Low To High</option>
+                                        <option value="descending">High To Low</option>
+                                        {%else%}
+                                        <option value="descending">High To Low</option>
+                                        <option value="ascending">Low To High</option>
+                                        {%endif%}
+
+                                       
+                                    </select>
+                                </div>
+                            </form>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        {% for product in  page_obj %}
+                      
+    
+                        <div class="col-lg-4 col-md-6 col-sm-6">
+                            <div class="product__item">
+                                <div class="product__item__pic set-bg" data-setbg="{{product.Product_Img.url}}">
+                                    <ul class="product__hover">
+                                        <li><a href="#"><img src="{% static 'img/icon/heart.png' %}" alt=""></a></li>
+                                        <li><a href="#"><img src="{% static 'img/icon/compare.png' %}" alt=""> <span>Compare</span></a>
+                                        </li>
+                                        <li><a href="#"><img src="{% static 'img/icon/search.png' %}" alt=""></a></li>
+                                    </ul>
+                                </div>
+                                <div class="product__item__text">
+                                    <h6>{{product.name}}</h6>
+                                    <a href="#" class="add-cart">+ Add To Cart</a>
+                               
+                                    <h5>${{product.Price}}</h5>
+                             
+                                </div>
+                            </div>
+                        </div>
+             
+           
+             
+                        
+                        {%endfor%}
+                    </div>
+                    <div class="container">
+                        <ul class="pagination justify-content-center">
+                            {% if page_obj.has_previous %}
+                                <li class="page-item"><a href="?page=1" class="page-link">&laquo; First</a></li>
+                                <li class="page-item"><a href="?page={{ page_obj.previous_page_number }}" class="page-link">Previous</a></li>
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link">&laquo; First</a></li>
+                            <li class="page-item disabled"><a class="page-link">Previous</a></li>
+                            {% endif %}
+                                
+                    
+                            
+                                <li class="page-item"><a class="page-link">{{ page_obj.number }}</a></li>
+                            
+                    
+                            {% if page_obj.has_next %}
+                            <li class="page-item"><a href="?page={{ page_obj.next_page_number }}" class="page-link">Next</a></li>
+                            <li class="page-item"><a href="?page={{ page_obj.paginator.num_pages }}" class="page-link">Last &raquo;</a></li>
+                            {% else %}
+                            <li class="page-item disabled"><a class="page-link">Next</a></li>
+                            <li class="page-item disabled"><a class="page-link">Last &raquo;</a></li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Shop Section End -->
+
+    <span style="display: none;" class="checker">{{category}}</span>
+
+
+
+    <script>
+        document.querySelector('.shop').setAttribute("class","active")
+
+        var cat= document.querySelector('.checker').innerHTML ;
+     
+
+        document.querySelector(`.${cat}`).setAttribute("class","black")
+
+
+        var elmnt= document.querySelector('.breadcrumb__links')
+        elmnt.scrollIntoView()
+
+        
+
+  
+        
+    </script>
+
+
+
+
+    <script>
+        document.querySelector('.shop').setAttribute("class","active") ;
+
+
+
+        var elmnt=document.querySelector('.breadcrumb__links')
+        elmnt.scrollIntoView()
+
+
+      
+        
+
+
+        $(document).ready(function(){
+                $("#myInput").on("keyup", function() {
+                var value = $(this).val().toLowerCase();
+                $(".dropdown-menu li").filter(function() {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+                });
+                });
+    </script>
+
+
+    {%endblock%}

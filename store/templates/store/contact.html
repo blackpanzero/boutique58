@@ -1,0 +1,70 @@
+{% extends "store/layout.html" %}
+
+
+{% load static %}
+
+{% block title %} Boutique 55 | Contacts {% endblock %}
+
+{% block body %}
+    <!-- Map Begin -->
+    <div class="map">
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3345.4776407647805!2d-96.54587818541843!3d33.01754457899056!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c048cfe6ca899%3A0x9b78e053ad5ea44!2s501%20W%20Brown%20St%2C%20Wylie%2C%20TX%2075098%2C%20USA!5e0!3m2!1sen!2ske!4v1603647446056!5m2!1sen!2ske" height="500" style="border:0;" allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+    </div>
+    <!-- Map End -->
+
+    <!-- Contact Section Begin -->
+    <section class="contact spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__text">
+                        <div class="section-title">
+                            <span>Information</span>
+                            <h2>Contact Us</h2>
+                            <p>As you might expect of a company that began as a high-end interiors contractor, we pay
+                                strict attention.</p>
+                        </div>
+                        <ul>
+                            <li>
+                              
+                                <p>Boutique 501 W  Brown Street Wylie, Texas 75098
+                                    <br>Fmuigua@yahoo.com
+                                    <br>469-263-2920
+                                    <br />214-861-9737<br>
+
+                                </p>
+                            </li>
+                         
+                        </ul>
+                    </div>
+                </div>
+                <div class="col-lg-6 col-md-6">
+                    <div class="contact__form">
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Name" name="name">
+                                </div>
+                                <div class="col-lg-6">
+                                    <input type="text" placeholder="Email" name="email">
+                                </div>
+                                <div class="col-lg-12">
+                                    <textarea placeholder="Message" name="content"></textarea>
+                                    <button type="submit" class="site-btn">Send Message</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section End -->
+
+
+    <script>
+        document.querySelector('.contacts').setAttribute("class","active")
+    </script>
+
+{%endblock%}

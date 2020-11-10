@@ -1,2 +1,2 @@
 release: python manage.py migrate
-web: gunicorn finalproject.wsgi --log-file -
+web: gunicorn Boutique55.wsgi --log-file -

@@ -11,15 +11,13 @@ https://docs.djangoproject.com/en/3.0/ref/settings/
 """
 
 import os
+import django_heroku
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-
-STATIC_URL = '/static/'
-
-MEDIA_ROOT = os.path.join(BASE_DIR, 'media') 
-MEDIA_URL = '/media/'
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = 'e=)pr$(8rrl3o*v5$ej(kzfm4*w+iyy@0cqvh*mvs!x(36uucp'
 
 
 
@@ -38,6 +36,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    'herokuapp',
     'store',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -135,3 +134,12 @@ EMAIL_HOST_USER = 'derrickotieno41@gmail.com'
 EMAIL_HOST_PASSWORD = 'hogwartsschool'
 EMAIL_USE_TLS = True
 EMAIL_USE_SSL = False
+
+
+PROJECT_ROOT = os.path.dirname(os.path.abspath(__file__))
+STATIC_URL = '/static/'
+STATIC_ROOT = os.path.join(PROJECT_ROOT, 'static')
+
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())

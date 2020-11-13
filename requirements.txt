@@ -1,6 +1,6 @@
 aiohttp==3.6.2
 apipkg==1.5
-apturl==0.5.2
+
 asgiref==3.2.7
 astroid==2.4.1
 async-timeout==3.0.1

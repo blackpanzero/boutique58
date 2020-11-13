@@ -18,7 +18,7 @@ colorama==0.4.3
 
 contextlib2==0.6.0.post1
 cryptography==2.8
-cupshelpers==1.0
+
 cycler==0.10.0
 dateparser==0.7.4
 dblpy==0.3.4

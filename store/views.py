@@ -24,7 +24,7 @@ def sendmail(request):
 		send_mail(
         	'Bautique58 Store',
 			'Hello,  \n\nThank you for subscribing to the Bautique58 newsletter.\nYou will now get the latest updates on new arrivals,sales & promos!. \n \nSincerly, Bautique58.',
-        	'derrickotieno41@gmail.com',
+        	'boutique58store@gmail.com',
         	[email],
         	fail_silently=False,
     		)
@@ -32,8 +32,8 @@ def sendmail(request):
 		send_mail(
         	'Bautique58 store new subscriber',
 			'New subscriber email:  ' + email,
-        	'derrickotieno41@gmail.com',
-        	['derrickotieno41@gmail.com'],
+        	'boutique58store@gmail.com',
+        	['boutique58store@gmail.com'],
         	fail_silently=False,
     		)
 		next = request.POST.get('next', '/')
@@ -71,15 +71,15 @@ def contact(request):
 		send_mail(
         	'Bautique58 Store',
         	'Dear ' + name + ", \n\nThank you for your inquiry regarding our product or service.\nWe will get back to you as soon as possible. \n \nSincerly, Bautique58.",
-        	'derrickotieno41@gmail.com',
+        	'boutique58store@gmail.com',
         	[email],
         	fail_silently=False,
     		)
 		send_mail(
         	'Bautique58 Store Customer Feedback',
         	"From " + name + "<" + email +"> , \n" +  content,
-        	'derrickotieno41@gmail.com',
-        	['derrickotieno41@gmail.com'],
+        	'boutique58store@gmail.com',
+        	['boutique58store@gmail.com'],
         	fail_silently=False,
     		)
 		

@@ -31,6 +31,7 @@ CATEGORIES = (
     ('PERFUMES','Perfumes'),
     ('HEADGEAR','Headgear'),
     ('HAIRANDMAKEUP','Hairandmakeup'),
+    ('PIERCINGS','Piercings'),
 
 
     )

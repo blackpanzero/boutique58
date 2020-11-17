@@ -29,6 +29,8 @@ CATEGORIES = (
     ('HEELS','Heels'),
     ('SNEAKERS','Sneakers'),
     ('PERFUMES','Perfumes'),
+    ('HEADGEAR','Headgear'),
+    ('HAIRANDMAKEUP','Hairandmakeup'),s
 
 
     )

@@ -3369,12 +3369,6 @@ ol {
 	}
 }
 
-@media only screen and (min-width: 800px) {
-	.pic {
-		background-size: 55% 100%;background-position: right;
-	}
-}
-
 /* Medium Device = 1200px */
 
 @media only screen and (min-width: 992px) and (max-width: 1199px) {

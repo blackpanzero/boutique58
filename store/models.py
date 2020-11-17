@@ -30,7 +30,7 @@ CATEGORIES = (
     ('SNEAKERS','Sneakers'),
     ('PERFUMES','Perfumes'),
     ('HEADGEAR','Headgear'),
-    ('HAIRANDMAKEUP','Hairandmakeup'),s
+    ('HAIRANDMAKEUP','Hairandmakeup'),
 
 
     )

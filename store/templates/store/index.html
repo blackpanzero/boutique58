@@ -9,6 +9,22 @@
 {% block body %}
 
 
+<style>
+    @media only screen and (min-width: 800px) {
+ 
+    .pict{
+        background-size: 55% 100%!important;
+
+    }
+}
+@media only screen and (min-width: 500px) and (max-width: 550px) {
+ 
+ .pict{
+     background-size: 100% 100%!important;
+
+ }
+}
+</style>
 
 
     <!-- Hero Section Begin -->
@@ -35,7 +51,7 @@
                     </div>
                 </div>
             </div>
-            <div class="hero__items set-bg" style="background-size: 55% 100%;background-position: right;" data-setbg="{% static 'img/hero/hero-11.jpg'%}">
+            <div class="hero__items set-bg pict" style="background-position: right;" data-setbg="{% static 'img/hero/hero-11.jpg'%}">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 col-md-8">

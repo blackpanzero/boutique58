@@ -30,7 +30,7 @@ SECRET_KEY = '5ts&(k2b2zr8wedp*1y3ddt92t^=b94ns4h&239mc83ufgpy_h'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['boutique58.herokuapp.com']
+ALLOWED_HOSTS = ['boutique58.herokuapp.com','127.0.0.1']
 
 
 # Application definition

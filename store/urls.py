@@ -13,6 +13,9 @@ urlpatterns = [
     path("category/<str:category>", views.cat, name="category"),
     path("gender/<str:gender>/", views.gender, name="gender"),
     path("gender/<str:gender>/<str:category>", views.gender_category, name="gender_category"),
+
+    #api routes
+    path("subs",views.subscriber,name="subscribers"),
     
     
 

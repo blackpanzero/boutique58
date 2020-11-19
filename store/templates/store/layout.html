@@ -31,9 +31,84 @@
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
     <link rel="stylesheet" href="{% static 'css/style.css'%}" type="text/css">
+
+
+
+    <style>
+
+        .modal-body p{
+            font-size: 20px;
+            font-family: fantasy;
+        }
+    </style>
+    
+    <script>
+            document.addEventListener("DOMContentLoaded",()=>{
+          document.querySelector('.sub').onsubmit=()=>{
+            let email=document.querySelector('#email').value
+            console.log(email)
+              console.log("hello")
+              fetch('/subs', {
+                method: 'POST',
+                body: JSON.stringify({
+                            email: email,             
+                        })
+                      })
+                      .then(response => response.json())
+                      .then(result => {
+                          // Print result
+                          console.log(result.message);
+                          if(result.message==="success"){
+                            document.querySelector('.modal-title').innerHTML="Thank you!";
+                              document.querySelector('.modal-par').innerHTML=` Thank you for subsribing to our newsletter. You wil now receive timely updates on new arrivals,sales & promos! <br><br>
+                    
+                    We have sent you a confirmation email`;
+                            $("#myModal").modal('show'); 
+                          }
+                          else{
+                              document.querySelector('.modal-title').innerHTML=result.heading;
+                              document.querySelector('.modal-par').innerHTML=result.message;
+                              $("#myModal").modal('show');
+    
+    
+                          }
+                        })
+                        document.querySelector('#email').value=""
+                        return false
+    
+            
+          }
+        })
+    
+    
+    
+    </script>
 </head>
 
+
+
 <body>
+    <div id="myModal" class="modal fade">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title">Thank you!</h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p class="modal-par"></p>
+              
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                  </div>
+                </div>
+                
+            </div>
+        </div>
+   
+        
+        
     <!-- Page Preloder -->
     <div id="preloder">
         <div class="loader"></div>
@@ -46,7 +121,7 @@
       
         <div id="mobile-menu-wrap"></div>
         <div class="offcanvas__text">
-     
+            <p>Free shipping, 30-day return or refund guarantee.</p>
         </div>
     </div>
     <!-- Offcanvas Menu End -->
@@ -97,7 +172,7 @@
                             <a href="#"><img src="{% static 'img/logo31.png'%}" alt=""></a>
                         </div>
                         <p>The customer is at the heart of our unique business model, which includes design.</p>
-                 
+                        <a href="#"><img src="{% static 'img/payment.png' %}" alt=""></a>
                     </div>
                 </div>
                 <div class="col-lg-2 offset-lg-1 col-md-3 col-sm-6">
@@ -108,19 +183,17 @@
                             <li><a href="{%url 'gender' 'shoes'%}">Trending Shoes</a></li>
                             <li><a href="{%url 'gender' 'kids'%}">Kids</a></li>
                             <li><a href="{%url 'gender' 'women'%}">Women clothes</a></li>
-                            <li><a href="{%url 'category' 'tops'%}">Tops</a></li>
                         </ul>
                     </div>
                 </div>
                 <div class="col-lg-2 col-md-3 col-sm-6">
                     <div class="footer__widget">
-                        <h6>Menu</h6>
+                        <h6>Shopping</h6>
                         <ul>
-                            <li><a href="{%url 'index'%}">Home</a></li>
                             <li><a href="{%url 'contact'%}">Contact Us</a></li>
                             <li><a href="{%url 'contact'%}">Store Lccation</a></li>
                             <li><a href="{%url 'about'%}">About Us</a></li>
-                           
+                            <li><a href="{%url 'category' 'tops'%}">Tops</a></li>
                         </ul>
                     </div>
                 </div>
@@ -129,9 +202,9 @@
                         <h6>NewLetter</h6>
                         <div class="footer__newslatter">
                             <p>Be the first to know about new arrivals,sales & promos!</p>
-                            <form method="POST" action="{%url 'mail' %}"> 
+                            <form method="POST" class="sub"> 
                                 {% csrf_token %}
-                                <input type="email" name="email" placeholder="Your email">
+                                <input type="email" id="email" name="email" placeholder="Your email">
                                 <button type="submit"><span class="icon_mail_alt"></span></button>
                             </form>
                         </div>

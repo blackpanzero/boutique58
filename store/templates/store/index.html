@@ -8,6 +8,13 @@
 
 {% block body %}
 
+</head>
+<body>
+
+
+
+
+
 
 <style>
     @media only screen and (min-width: 800px) {
@@ -27,6 +34,7 @@
 </style>
 
 
+
     <!-- Hero Section Begin -->
     <section class="hero">
         <div class="hero__slider owl-carousel">
@@ -35,11 +43,11 @@
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 col-md-8">
                             <div class="hero__text">
-                                <h6>Men Collection</h6>
-                                <h2>Men's Fashion </h2>
+                                <h6>Summer Collection</h6>
+                                <h2>Fall - Winter Collections 2030</h2>
                                 <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
                                 commitment to exceptional quality.</p>
-                                <a href="{%url 'gender' 'men'%}" class="primary-btn">Check Collection <span class="arrow_right"></span></a>
+                                <a href="{%url 'shop'%}" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                                 <div class="hero__social">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -51,16 +59,39 @@
                     </div>
                 </div>
             </div>
-            <div class="hero__items set-bg pict" style="background-position: right;" data-setbg="{% static 'img/hero/hero-11.jpg'%}">
+
+            <div class="hero__items set-bg "  style="background-size: 100% 100%!important;;" data-setbg="{% static 'img/hero/hero-6.jpg'%}">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-5 col-lg-7 col-md-8">
                             <div class="hero__text">
-                                <h6>Women Collection</h6>
-                                <h2>Women's Fashion</h2>
+                                <h6>Summer Collection</h6>
+                                <h2>Fall - Winter Collections 2030</h2>
                                 <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
                                 commitment to exceptional quality.</p>
-                                <a href="{%url 'gender' 'women'%}" class="primary-btn">Check Collection <span class="arrow_right"></span></a>
+                                <a href="{%url 'shop'%}" class="primary-btn">Shop now <span class="arrow_right"></span></a>
+                                <div class="hero__social">
+                                    <a href="#"><i class="fa fa-facebook"></i></a>
+                                    <a href="#"><i class="fa fa-twitter"></i></a>
+                                    <a href="#"><i class="fa fa-pinterest"></i></a>
+                                    <a href="#"><i class="fa fa-instagram"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero__items set-bg pict "  style="background-position: right;" data-setbg="{% static 'img/hero/hero-11.jpg'%}">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-xl-5 col-lg-7 col-md-8">
+                            <div class="hero__text">
+                                <h6>Summer Collection</h6>
+                                <h2>Fall - Winter Collections 2030</h2>
+                                <p>A specialist label creating luxury essentials. Ethically crafted with an unwavering
+                                commitment to exceptional quality.</p>
+                                <a href="{%url 'shop'%}" class="primary-btn">Shop now <span class="arrow_right"></span></a>
                                 <div class="hero__social">
                                     <a href="#"><i class="fa fa-facebook"></i></a>
                                     <a href="#"><i class="fa fa-twitter"></i></a>
@@ -176,10 +207,13 @@
     <!-- Product Section End -->
 
   
+<style>
 
+</style>
 
 
     <script>
         document.querySelector('.index').setAttribute("class","active")
     </script>
     {% endblock %}
+

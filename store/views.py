@@ -1,9 +1,10 @@
 from django.contrib.auth import authenticate, login, logout
 from django.db import IntegrityError
-from django.http import HttpResponse, HttpResponseRedirect,Http404
+from django.http import HttpResponse, HttpResponseRedirect,Http404,JsonResponse
+from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from django.urls import reverse
-
+import json
 
 from .forms import *
 
@@ -12,11 +13,15 @@ from django.shortcuts import render, redirect
 from .forms import *
 from django.core.mail import send_mail
 from django.http import HttpResponse
-from .models import Item,Team
+from .models import Item,Team,Subscriber
 from django.core.paginator import Paginator
+
+subscribers=[]
+
 
 
 def sendmail(request):
+	print(subscribers)
 
 	if request.method == "POST":
 		email=request.POST["email"]
@@ -36,9 +41,15 @@ def sendmail(request):
         	['boutique58store@gmail.com'],
         	fail_silently=False,
     		)
-		next = request.POST.get('next', '/')
 
-		return HttpResponseRedirect(next)
+		if not Subscriber.objects.filter(email=email):
+			subscriber=Subscriber(email=email)
+			subscriber.save()
+
+	url = reverse('index')
+	return HttpResponseRedirect(url)
+	
+
 
 # Create your views here. 
 
@@ -54,7 +65,7 @@ def sendmail(request):
 def index(request):
 	new_arrivals=Item.objects.all().order_by('id').reverse()[:4]
 	hot_sales=Item.objects.all().order_by('name').reverse()[:4]
-	
+	print(subscribers)
 
 
 
@@ -335,3 +346,28 @@ def gender_category(request,gender,category):
 	return render(request, "store/gender_category.html",{'page_obj': page_obj,"count":Item.objects.filter(gender=gender,categories=category).order_by('Price').count(),"order":"ascending",
 	"categories":categories,"gender":gender,"category":category,"accessories":accesories,"clothing":clothing,"shoes":shoes})
  
+
+
+
+@csrf_exempt
+def subscriber(request):
+
+    
+    # Composing a new email must be via POST
+	if request.method != "POST":
+		return JsonResponse({"error": "POST request required."}, status=400)
+
+    # Check recipient emails
+	data = json.loads(request.body)
+    #post.content = data.get("body","")
+    #post.save()
+	email=data.get("email","") 
+	print(email)
+	try:
+		sub= Subscriber.objects.get(email=email)
+	
+		return JsonResponse({"heading":"Sorry","message": "You have alredy subscribe to our newsletter"}, status=201)
+	except Subscriber.DoesNotExist:   
+		subscriber=Subscriber(email=email)
+		subscriber.save()
+		return JsonResponse({"message": "success"}, status=201) 

@@ -29,9 +29,6 @@ CATEGORIES = (
     ('HEELS','Heels'),
     ('SNEAKERS','Sneakers'),
     ('PERFUMES','Perfumes'),
-    ('HEADGEAR','Headgear'),
-    ('HAIRANDMAKEUP','Hairandmakeup'),
-    ('PIERCINGS','Piercings'),
 
 
     )
@@ -61,4 +58,9 @@ class Team(models.Model):
     second_name= models.CharField(max_length=50)
     position=models.CharField(max_length=50)
     image = models.ImageField(upload_to='images/',default="none") 
+
+class Subscriber(models.Model):
+    email = models.CharField(max_length=255) 
+  
+    
     
